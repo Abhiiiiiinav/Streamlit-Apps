@@ -11,10 +11,10 @@ def load_labels():
     with open("imagenet_labels.txt", "r") as f:
         return [line.strip() for line in f.readlines()]
 
-# Load EfficientNetB0 model
+# Load model from local file
 @st.cache_resource
 def load_model():
-    return tf.keras.applications.EfficientNetB0(weights="imagenet")
+    return tf.keras.models.load_model("efficientnetb0_imagenet.h5")
 
 # Preprocess image
 def preprocess_image(image):
